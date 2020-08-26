@@ -1,4 +1,4 @@
-package xyz.gabrielrohez.pokeeshow;
+package xyz.gabrielrohez.pokeeshow.utils;
 
 public class Constants {
 

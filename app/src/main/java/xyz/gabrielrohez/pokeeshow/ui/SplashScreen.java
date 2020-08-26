@@ -1,4 +1,4 @@
-package xyz.gabrielrohez.pokeeshow;
+package xyz.gabrielrohez.pokeeshow.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
