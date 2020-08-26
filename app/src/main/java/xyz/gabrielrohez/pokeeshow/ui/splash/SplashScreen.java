@@ -1,10 +1,12 @@
-package xyz.gabrielrohez.pokeeshow.ui;
+package xyz.gabrielrohez.pokeeshow.ui.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import xyz.gabrielrohez.pokeeshow.ui.main.MainActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
