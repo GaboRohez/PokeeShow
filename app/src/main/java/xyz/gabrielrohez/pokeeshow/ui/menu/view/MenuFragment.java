@@ -41,5 +41,6 @@ public class MenuFragment extends BaseFragment<MenuContract.Presenter, FragmentM
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        presenter.getPokemonList();
     }
 }

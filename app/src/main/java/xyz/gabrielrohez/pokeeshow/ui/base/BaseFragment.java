@@ -58,6 +58,12 @@ public abstract class BaseFragment<T, B> extends Fragment implements BaseView{
     }
 
     @Override
+    public void showDialog(int drawable, int resId) {
+        PokeDialog dialog = new PokeDialog(requireContext(), getString(resId), drawable);
+        dialog.show();
+    }
+
+    @Override
     public void addFragment(Fragment fragment) {
         getChildFragmentManager().beginTransaction()
                 .add(R.id.contentFragment, fragment, fragment.toString())

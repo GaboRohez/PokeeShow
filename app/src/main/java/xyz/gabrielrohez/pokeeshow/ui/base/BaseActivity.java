@@ -43,6 +43,12 @@ public abstract class BaseActivity<P> extends AppCompatActivity implements BaseV
     }
 
     @Override
+    public void showDialog(int drawable, int resId) {
+        PokeDialog dialog = new PokeDialog(getApplicationContext(), getString(resId), drawable);
+        dialog.show();
+    }
+
+    @Override
     public void addFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.contentFragment, fragment, fragment.toString())

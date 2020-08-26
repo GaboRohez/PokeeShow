@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 public interface BaseView {
     void showLoader(boolean visible);
     void showDialog(int drawable, String message);
+    void showDialog(int drawable, int resId);
     void addFragment(Fragment fragment);
     void replaceFragment(Fragment fragment);
 }
