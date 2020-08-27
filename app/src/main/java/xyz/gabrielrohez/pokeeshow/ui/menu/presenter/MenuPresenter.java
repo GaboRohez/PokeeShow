@@ -1,7 +1,5 @@
 package xyz.gabrielrohez.pokeeshow.ui.menu.presenter;
 
-import android.util.Log;
-
 import xyz.gabrielrohez.pokeeshow.R;
 import xyz.gabrielrohez.pokeeshow.ui.base.BasePresenter;
 import xyz.gabrielrohez.pokeeshow.ui.menu.interactor.MenuInteractor;
@@ -18,14 +16,17 @@ public class MenuPresenter extends BasePresenter<MenuContract.View> implements M
     }
 
     @Override
-    public void getPokemonList() {
-        int offset = 0;
+    public void getPokemonList(int offset) {
         int limit = 20;
         addSubscription(interactor.getPokemonList(offset, limit)
                 .doOnSubscribe(disposable -> view.showLoader(true))
                 .doAfterTerminate(() -> view.showLoader(false))
                 .subscribe(response -> {
-                    view.setPokeList(response.getResults());
+                    if (response.getResults() != null && !response.getResults().isEmpty()){
+                        view.setPokeList(response.getResults());
+                    }else {
+                        view.showDialog(R.color.colorPrimary, "No more pokemon");
+                    }
                 }, throwable -> view.showDialog(R.color.colorPrimary, processError(throwable))));
     }
 }

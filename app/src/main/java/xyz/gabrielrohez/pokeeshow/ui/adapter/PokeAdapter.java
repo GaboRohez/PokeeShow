@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import xyz.gabrielrohez.pokeeshow.databinding.ItemPokemonBinding;
@@ -22,8 +23,8 @@ public class PokeAdapter extends RecyclerView.Adapter<PokeAdapter.ViewHolder> {
     private Context context;
     private static List<ResultsEntity> list;
 
-    public PokeAdapter(Context context, List<ResultsEntity> list, PokeIn listener) {
-        this.list = list;
+    public PokeAdapter(Context context, PokeIn listener) {
+        this.list = new ArrayList<>();
         this.context = context;
         this.listener = listener;
     }
@@ -49,6 +50,11 @@ public class PokeAdapter extends RecyclerView.Adapter<PokeAdapter.ViewHolder> {
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    public void addPokeList(ArrayList<ResultsEntity> pokeList) {
+        list.addAll(pokeList);
+        notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
