@@ -25,8 +25,7 @@ public class MenuPresenter extends BasePresenter<MenuContract.View> implements M
                 .doOnSubscribe(disposable -> view.showLoader(true))
                 .doAfterTerminate(() -> view.showLoader(false))
                 .subscribe(response -> {
-                    Log.d(TAG, "getPokemonList: "+response.getResults().toString());
-                    Log.d(TAG, "getPokemonList: "+response.getResults().get(5).getNumber());
+                    view.setPokeList(response.getResults());
                 }, throwable -> view.showDialog(R.color.colorPrimary, processError(throwable))));
     }
 }

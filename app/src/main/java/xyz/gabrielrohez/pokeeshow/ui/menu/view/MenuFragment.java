@@ -5,18 +5,25 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import java.util.List;
 
 import xyz.gabrielrohez.pokeeshow.R;
 import xyz.gabrielrohez.pokeeshow.databinding.FragmentMenuBinding;
+import xyz.gabrielrohez.pokeeshow.network.model.ResultsEntity;
+import xyz.gabrielrohez.pokeeshow.ui.adapter.PokeAdapter;
 import xyz.gabrielrohez.pokeeshow.ui.base.BaseFragment;
 import xyz.gabrielrohez.pokeeshow.ui.menu.presenter.MenuContract;
 import xyz.gabrielrohez.pokeeshow.ui.menu.presenter.MenuPresenter;
 
-public class MenuFragment extends BaseFragment<MenuContract.Presenter, FragmentMenuBinding> implements MenuContract.View {
+public class MenuFragment extends BaseFragment<MenuContract.Presenter, FragmentMenuBinding> implements MenuContract.View, PokeAdapter.PokeIn {
 
     public static MenuFragment newInstance() {
         MenuFragment fragment = new MenuFragment();
@@ -42,5 +49,19 @@ public class MenuFragment extends BaseFragment<MenuContract.Presenter, FragmentM
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         presenter.getPokemonList();
+    }
+
+    @Override
+    public void setPokeList(List<ResultsEntity> result) {
+        PokeAdapter adapter = new PokeAdapter(requireContext(), result, this);
+        binding.recycler.setLayoutManager(new GridLayoutManager(requireContext(), 3));
+        binding.recycler.setHasFixedSize(true);
+        binding.recycler.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onPokemonClick(ResultsEntity pokemon) {
+        Toast.makeText(requireContext(), pokemon.getName(), Toast.LENGTH_SHORT).show();
     }
 }

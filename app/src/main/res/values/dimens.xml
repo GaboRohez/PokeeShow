@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="dimen_items_card">2dp</dimen>
     <dimen name="dimen_small_margin">8dp</dimen>
     <dimen name="dimen_large_margin">16dp</dimen>
+    <dimen name="dimen_width_image_pokemon">110dp</dimen>
+    <dimen name="dimen_padding_text_top">4dp</dimen>
+    <dimen name="dimen_padding_text_start">15dp</dimen>
+    <dimen name="size_medium">12sp</dimen>
 </resources>
