@@ -12,7 +12,7 @@
 
     <ImageView
         android:id="@+id/ivPokemon"
-        android:src="@drawable/poke_d"
+        tools:src="@tools:sample/avatars"
         android:layout_width="@dimen/dimen_width_image_pokemon"
         android:layout_height="@dimen/dimen_width_image_pokemon"/>
 

@@ -20,7 +20,7 @@
             <ImageView
                 android:id="@+id/ivIcon"
                 android:layout_marginTop="@dimen/dimen_large_margin"
-                tools:src="@drawable/poke_e"
+                app:srcCompat="@drawable/ic_poke_location"
                 android:scaleType="centerInside"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"/>

@@ -36,10 +36,6 @@ public class PokeDialog extends AppCompatDialog {
             PokeDialogLayoutBinding binding = PokeDialogLayoutBinding.inflate(LayoutInflater.from(getContext()), null, false);
             this.setContentView(binding.getRoot());
 
-            Glide.with(getContext())
-                    .load(AppConstants.POKE_ICON.randomImage().getImage())
-                    .into(binding.ivIcon);
-
             binding.tvMessage.setText(message);
             binding.btnAccept.getBackground().setColorFilter(ContextCompat.getColor(getContext(), color), PorterDuff.Mode.MULTIPLY);
 
